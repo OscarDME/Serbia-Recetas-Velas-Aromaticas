@@ -82,31 +82,23 @@ export default function FinalCta() {
           {finalCta.subheadline}
         </p>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-[auto_1fr] items-center bg-white rounded-3xl border border-[var(--color-brand-light)] p-6 sm:p-8 shadow-warm-soft">
-          <div className="mx-auto sm:mx-0">
-            <div className="relative">
-              <div className="absolute -inset-2 bg-gradient-to-tr from-[var(--color-accent)] to-[var(--color-brand)] rounded-full blur-md opacity-60" />
-              <img
-                src="/instructor.webp"
-                alt={finalCta.instructorImageAlt}
-                className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-white shadow-warm"
-              />
-            </div>
-          </div>
-          <div className="text-center sm:text-left">
-            <div className="flex items-center gap-3 flex-wrap justify-center sm:justify-start">
-              <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 rounded-full px-3 py-1 text-[10px] sm:text-xs font-black tracking-[0.18em] uppercase border border-emerald-200">
-                <ShieldCheck className="w-3.5 h-3.5" />
-                {finalCta.guaranteeBadge}
-              </div>
-              {finalCta.guaranteeLogo && (
+        <div className={`mt-12 grid gap-8 ${finalCta.showGuaranteeImage ? "sm:grid-cols-[auto_1fr]" : ""} items-center bg-white rounded-3xl border border-[var(--color-brand-light)] p-6 sm:p-8 shadow-warm-soft`}>
+          {finalCta.showGuaranteeImage && (
+            <div className="mx-auto sm:mx-0">
+              <div className="relative">
+                <div className="absolute -inset-2 bg-gradient-to-tr from-[var(--color-accent)] to-[var(--color-brand)] rounded-full blur-md opacity-60" />
                 <img
-                  src={finalCta.guaranteeLogo}
-                  alt={finalCta.guaranteeLogoAlt || "Garantía"}
-                  className="h-12 sm:h-14 w-auto object-contain"
-                  loading="lazy"
+                  src="/instructor.webp"
+                  alt={finalCta.instructorImageAlt}
+                  className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-white shadow-warm"
                 />
-              )}
+              </div>
+            </div>
+          )}
+          <div className="text-center sm:text-left">
+            <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 rounded-full px-3 py-1 text-[10px] sm:text-xs font-black tracking-[0.18em] uppercase border border-emerald-200">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              {finalCta.guaranteeBadge}
             </div>
             <p className="mt-3 text-sm sm:text-base text-stone-700 leading-relaxed">
               {finalCta.guaranteeText}
